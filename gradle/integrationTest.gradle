@@ -26,3 +26,11 @@ sonarRunner {
         properties['sonar.tests'] += sourceSets.integrationTest.allSource.srcDirs
     }
 }
+
+idea {
+	module {
+		sourceSets.integrationTest.allSource.srcDirs.each {
+			testSourceDirs += it
+		}
+	}
+}

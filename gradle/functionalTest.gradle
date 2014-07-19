@@ -78,6 +78,10 @@ task remoteFunctionalTest(type: Test) {
 
 idea {
 	module {
+		sourceSets.functionalTest.allSource.srcDirs.each {
+			testSourceDirs += it
+		}
+
 		scopes.TEST.plus += [configurations.functTestCompile, configurations.functTestRuntime]
 	}
 }
