@@ -75,3 +75,9 @@ task remoteFunctionalTest(type: Test) {
     systemProperties functionalCommonSystemProperties
     systemProperty 'geb.build.baseUrl', "http://$config.tomcat.hostname:$config.tomcat.port/$config.tomcat.context/"
 }
+
+idea {
+	module {
+		scopes.TEST.plus += [configurations.functTestCompile, configurations.functTestRuntime]
+	}
+}
